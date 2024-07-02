@@ -1,0 +1,395 @@
+resources:
+  - url: /local/decluttering-card.js
+    type: module
+decluttering_templates:
+  media_player:
+    default: null
+    card:
+      type: custom:button-card
+      entity: '[[entity]]'
+      show_entity_picture: true
+      entity_picture: |
+        [[[
+            if (states['[[entity]]'].state == "idle") 
+          return "/local/images/media.png";
+            else
+          return states['[[entity]]'].attributes.entity_picture
+        ]]]
+      show_name: false
+      show_icon: false
+      custom_fields:
+        i:
+          card:
+            type: conditional
+            conditions:
+              - condition: state
+                entity: '[[entity]]'
+                state: 'off'
+            card:
+              type: custom:button-card
+              show_name: true
+              name: '[[name]]'
+              styles:
+                card:
+                  - width: 110px
+                  - height: 33px
+                  - border-radius: 99px
+                  - box-shadow: none
+                  - background: '[[button-background-color]]'
+                  - margin: 20px 0 0 0
+                name:
+                  - justify-self: center
+                  - font-size: 15px
+                  - font-weight: bold
+                  - color: '[[primary-color]]'
+        artist:
+          card:
+            type: custom:button-card
+            tap_action:
+              action: none
+            entity: sensor.[[sensor]]_content
+            name: |
+              [[[
+                 if (states['[[entity]]'].attributes.media_artist != undefined) 
+               return `<marquee>${states['[[entity]]'].attributes.media_artist}<\marquee>`;
+              ]]]
+            show_label: true
+            show_icon: false
+            state:
+              - value: radio
+                styles:
+                  name:
+                    - color: rgba(0,0,0,0)
+            styles:
+              card:
+                - box-shadow: none
+                - background: none
+                - padding: 0px
+                - border-radius: 0px
+              name:
+                - justify-self: stretch
+                - line-height: 23px
+                - font-size: 22px
+                - font-weight: bold
+                - color: '[[primary-color]]'
+        album:
+          card:
+            type: custom:button-card
+            tap_action:
+              action: none
+            entity: sensor.[[sensor]]_content
+            name: |
+              [[[
+                 if (states['[[entity]]'].attributes.media_album_name != undefined) 
+               return `<marquee>${states['[[entity]]'].attributes.media_album_name}<\marquee>`;
+              ]]]
+            show_icon: false
+            styles:
+              card:
+                - box-shadow: none
+                - background: none
+                - padding: 0px
+                - border-radius: 0px
+              name:
+                - justify-self: stretch
+                - line-height: 21px
+                - font-size: 19px
+                - font-weight: 500
+                - color: '[[secondary-color]]'
+        title:
+          card:
+            type: custom:button-card
+            tap_action:
+              action: none
+            entity: sensor.[[sensor]]_content
+            name: |
+              [[[
+                 if (states['[[entity]]'].attributes.media_title != undefined) 
+               return `<marquee>${states['[[entity]]'].attributes.media_title}<\marquee>`;
+              ]]]
+            show_icon: false
+            state:
+              - value: radio
+                styles:
+                  name:
+                    - font-size: 24px
+                    - margin-top: '-4px'
+            styles:
+              card:
+                - box-shadow: none
+                - background: none
+                - padding: 0px
+                - border-radius: 0px
+              name:
+                - justify-self: stretch
+                - font-size: 19px
+                - font-weight: 500
+                - color: '[[primary-color]]'
+        buttons:
+          card:
+            type: custom:button-card
+            custom_fields:
+              previous:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.media_previous_track
+                    target:
+                      entity_id: '[[entity]]'
+                  icon: mdi:skip-previous
+                  show_name: false
+                  styles:
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+                    icon:
+                      - width: 26px
+                      - color: '[[primary-color]]'
+              play:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.media_play_pause
+                    target:
+                      entity_id: '[[entity]]'
+                  hold_action:
+                    action: call-service
+                    service: media_player.turn_off
+                    target:
+                      entity_id:
+                        - '[[entity]]'
+                  entity: '[[entity]]'
+                  icon: mdi:play
+                  state:
+                    - value: playing
+                      icon: mdi:pause
+                  show_name: false
+                  styles:
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+                    icon:
+                      - width: 26px
+                      - color: '[[primary-color]]'
+              next:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.media_next_track
+                    target:
+                      entity_id: '[[entity]]'
+                  icon: mdi:skip-next
+                  show_name: false
+                  styles:
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+                    icon:
+                      - width: 26px
+                      - color: '[[primary-color]]'
+              voldown:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.volume_down
+                    target:
+                      entity_id:
+                        - '[[entity]]'
+                  icon: mdi:volume-medium
+                  show_name: false
+                  styles:
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+                    icon:
+                      - width: 26px
+                      - color: '[[primary-color]]'
+              volup:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: media_player.volume_up
+                    target:
+                      entity_id:
+                        - '[[entity]]'
+                  icon: mdi:volume-high
+                  show_name: false
+                  styles:
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+                    icon:
+                      - width: 24px
+                      - color: '[[primary-color]]'
+              power:
+                card:
+                  type: custom:button-card
+                  icon: mdi:power
+                  show_name: false
+                  tap_action:
+                    action: call-service
+                    service: media_player.toggle
+                    target:
+                      entity_id: '[[entity]]'
+                  styles:
+                    icon:
+                      - width: 24px
+                      - color: '[[primary-color]]'
+                    card:
+                      - width: 33px
+                      - height: 33px
+                      - border-radius: 99px
+                      - box-shadow: none
+                      - background: '[[button-background-color]]'
+            styles:
+              grid:
+                - grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                - grid-template-rows: min-content;
+                - grid-template-areas: '"previous play next voldown volup power"'
+                - justify-items: center
+              card:
+                - padding: 0 0 0 8px
+                - align-self: end
+                - background: none
+                - box-shadow: none
+        time:
+          card:
+            type: custom:button-card
+            custom_fields:
+              progress:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: none
+                  entity: sensor.[[sensor]]_media_position
+                  show_state: true
+                  show_icon: false
+                  show_name: false
+                  styles:
+                    card:
+                      - background: none
+                      - border-radius: 0
+                      - box-shadow: none
+                    state:
+                      - color: '[[primary-color]]'
+                      - font-weight: 550
+                      - font-size: 16px
+              remaining:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: none
+                  entity: sensor.[[sensor]]_media_remaining
+                  show_state: true
+                  show_icon: false
+                  show_name: false
+                  styles:
+                    card:
+                      - background: none
+                      - border-radius: 0
+                      - box-shadow: none
+                      - padding: 0 5px 0 0
+                    state:
+                      - color: '[[secondary-color]]'
+                      - font-weight: 550
+                      - font-size: 16px
+              duration:
+                card:
+                  type: custom:button-card
+                  tap_action:
+                    action: none
+                  entity: sensor.[[sensor]]_media_duration
+                  show_state: true
+                  show_icon: false
+                  show_name: false
+                  styles:
+                    card:
+                      - background: none
+                      - border-radius: 0
+                      - box-shadow: none
+                    state:
+                      - color: '[[primary-color]]'
+                      - font-weight: 550
+                      - font-size: 16px
+              track:
+                card:
+                  type: custom:my-slider-v2
+                  entity: '[[entity]]'
+                  mode: seekbar
+                  min: 0
+                  max: 100
+                  styles:
+                    card:
+                      - height: 20px
+                      - box-shadow: none
+                      - margin: 4px 0 0 0
+                      - background: none
+                    container:
+                      - border-radius: 0px
+                      - background: none
+                      - padding: 0 0 0 10px
+                    track:
+                      - background: '[[button-background-color]]'
+                      - border-radius: 99px
+                      - padding: 0 0px 0 0px
+                      - width: 91%
+                      - height: 7px
+                      - margin: 4px 0 0 0
+                    progress:
+                      - background: '[[primary-color]]'
+                      - border-radius: 99px
+                      - height: 7px
+                      - margin: 0 0 0 0
+                    thumb:
+                      - background: '[[primary-color]]'
+                      - width: 15px
+                      - height: 15px
+                      - border-radius: 99px
+                      - margin: '-4px -3px 0 0px'
+            styles:
+              grid:
+                - grid-template-areas: '"progress track remaining duration"'
+                - grid-template-columns: max-content 1fr max-content max-content
+                - grid-template-rows: min-content
+              card:
+                - padding: 5px 6px 5px 0px
+                - background: none
+                - box-shadow: none
+      styles:
+        grid:
+          - grid-template-areas: '"i artist" "i album" "i title" "i buttons" "time time"'
+          - grid-template-columns: max-content 1fr
+          - grid-template-rows: max-content max-content max-content max-content;
+          - align-items: end
+        card:
+          - background: none
+          - box-shadow: none
+          - border-radius: 0px
+          - padding: 0px 0px 0 5px
+          - margin: 5px 0 -10px 0
+        entity_picture:
+          - align-self: start
+          - justify-self: start
+          - width: 110px
+          - height: 100%
+          - border-radius: 15px
