@@ -22,7 +22,8 @@ you will need to create 3 sensor templates per media player and 1 automation for
 
 The following sensors are required to get the progress bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
 
-To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor > Paste this code and set title
+To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor > Paste this code
+(Replace name and media_player entity to your own. the name of the sensor is important)
 
 ### **Bedroom Media Duration**
 
