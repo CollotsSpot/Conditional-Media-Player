@@ -95,6 +95,22 @@ action:
         - media_player.bedroom_hifi
 ```
 
-## Decluttering Card
+## Decluttering Template
 
 On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration editor. Make space at the top and paste the contents of the [Decluttering Template](decluttering-template.yaml)
+
+## Decluttering Card
+
+On your Dashboard go to Add Card > Manual > paste code and replace entity, name, colors and sensor to your liking
+
+'''
+type: custom:decluttering-card
+template: media_player
+variables:
+  - entity: media_player.bedroom_hifi
+  - name: Bedroom
+  - primary-color: '#6F8081'
+  - secondary-color: rgba(96,114,116,0.6)
+  - button-background-color: rgba(96,114,116,0.2)
+  - sensor: bedroom
+  - '''
