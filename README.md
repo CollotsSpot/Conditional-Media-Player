@@ -94,3 +94,7 @@ action:
       entity_id:
         - media_player.bedroom_hifi
 ```
+
+## Decluttering Card
+
+On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration editor. Make space at the top and paste the contents of the Decluttering card
