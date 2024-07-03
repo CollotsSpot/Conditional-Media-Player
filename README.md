@@ -74,6 +74,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 ## Automation
 
 For the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
+(Replace media_player entities to your own.)
 
 ```
 alias: Update Media Players
