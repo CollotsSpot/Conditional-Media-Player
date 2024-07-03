@@ -14,13 +14,15 @@ If you like the card as much as i do, you won't mind setting up a few things to 
 
 [Decluttering Card](https://github.com/custom-cards/decluttering-card)
 
-## Automation & Sensors
+##  Sensors & Automation
 
-you will need to create 3 sensor templates per media player and 1 automation for the card to work. To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor. 
-
-the following sensors are required to get the progress bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
+you will need to create 3 sensor templates per media player and 1 automation for the card to work.
 
 ## Sensors
+
+To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor. 
+
+The following sensors are required to get the progress bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
 
 ### **Bedroom Media Duration**
 
