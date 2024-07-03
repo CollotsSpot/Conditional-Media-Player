@@ -65,3 +65,25 @@ the following sensors are required to get the progress bar and timers working. r
   -00:00 |
 {% endif %}
 ```
+
+### **Automation**
+
+```
+alias: Update Media Players
+description: ""
+trigger:
+  - platform: time_pattern
+    seconds: /1
+condition:
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.bedroom_hifi
+        state: playing
+action:
+  - service: homeassistant.update_entity
+    data: {}
+    target:
+      entity_id:
+        - media_player.bedroom_hifi
+```
