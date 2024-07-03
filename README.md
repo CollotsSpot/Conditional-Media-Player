@@ -128,4 +128,4 @@ card:
     - sensor: bedroom
 ```
 
-You should now have the media player working
+You should now have the media player working. The Card will not show on the dashboard when the media_player is off or idle. This is normal behaviour. The card will always be shown when editing the Dashboard.
