@@ -8,13 +8,6 @@ decluttering_templates:
       type: custom:button-card
       entity: '[[entity]]'
       show_entity_picture: true
-      entity_picture: |
-        [[[
-            if (states['[[entity]]'].state == "idle") 
-          return "/local/images/media.png";
-            else
-          return states['[[entity]]'].attributes.entity_picture
-        ]]]
       show_name: false
       show_icon: false
       custom_fields:
