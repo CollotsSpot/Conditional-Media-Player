@@ -28,7 +28,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 ### **Bedroom Media Duration**
 
 ```
-{% set md = state_attr('media_player.bedroom_hifi', 'media_duration') %}
+{% set md = state_attr('media_player.bedroom', 'media_duration') %}
 {% if md == none %}
   00:00
 {% elif (md | int) < 3600 %}
@@ -43,7 +43,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 ### **Bedroom Media Position**
 
 ```
-{% set mp = state_attr('media_player.bedroom_hifi', 'media_position') %}
+{% set mp = state_attr('media_player.bedroom', 'media_position') %}
 {% if mp == none %}
   00:00
 {% elif (mp | int) < 3600 %}
@@ -58,8 +58,8 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 ### **Bedroom Media Remaining**
 
 ```
-{% set md = state_attr('media_player.bedroom_hifi', 'media_duration') %}
-{% set mp = state_attr('media_player.bedroom_hifi', 'media_position') %}
+{% set md = state_attr('media_player.bedroom', 'media_duration') %}
+{% set mp = state_attr('media_player.bedroom', 'media_position') %}
 {% if mp == none %}
   -00:00 |
 {% elif (md | int - mp | int) < 3600 %}
@@ -77,7 +77,7 @@ This automation updates the sensors every second.
 
 For the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
 
-(Replace media_player entities to your own.)
+(Replace media_player entities to your own, and add more if required)
 
 ```
 alias: Update Media Players
@@ -89,14 +89,14 @@ condition:
   - condition: or
     conditions:
       - condition: state
-        entity_id: media_player.bedroom_hifi
+        entity_id: media_player.bedroom
         state: playing
 action:
   - service: homeassistant.update_entity
     data: {}
     target:
       entity_id:
-        - media_player.bedroom_hifi
+        - media_player.bedroom
 ```
 
 ## Decluttering Template
@@ -111,16 +111,16 @@ On your Dashboard go to Add Card > Manual > paste code and replace entity, name,
 type: conditional
 conditions:
   - condition: state
-    entity: media_player.bedroom_hifi
+    entity: media_player.bedroom
     state_not: 'off'
   - condition: state
-    entity: media_player.bedroom_hifi
+    entity: media_player.bedroom
     state_not: idle
 card:
   type: custom:decluttering-card
   template: media_player
   variables:
-    - entity: media_player.bedroom_hifi
+    - entity: media_player.bedroom
     - name: Bedroom
     - primary-color: '#6F8081'
     - secondary-color: rgba(96,114,116,0.6)
