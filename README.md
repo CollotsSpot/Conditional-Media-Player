@@ -20,6 +20,8 @@ you will need to create 3 sensor templates per media player and 1 automation for
 
 the following sensors are required to get the progress bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
 
+## Sensors
+
 ### **Bedroom Media Duration**
 
 ```
@@ -66,7 +68,7 @@ the following sensors are required to get the progress bar and timers working. r
 {% endif %}
 ```
 
-### **Automation**
+## Automation
 
 ```
 alias: Update Media Players
