@@ -75,7 +75,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 
 This automation updates the sensors every second.
 
-For the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
+To create the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
 
 (Replace media_player entities to your own, and add more if required)
 
