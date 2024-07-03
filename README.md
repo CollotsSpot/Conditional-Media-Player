@@ -20,7 +20,7 @@ you will need to create 3 sensor templates per media player and 1 automation for
 
 ## Sensors
 
-The following sensors are required to get the progress bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
+The following sensors provide the timers infomation. replace name and media_player entity to your own. the name of the sensor is important.
 
 To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor > Paste this code
 
@@ -73,6 +73,8 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 
 ## Automation
 
+This automation updates the sensors every second.
+
 For the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
 
 (Replace media_player entities to your own.)
@@ -101,18 +103,29 @@ action:
 
 On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration editor. Make space at the top and paste the contents of the [Decluttering Template](decluttering-template.yaml)
 
-## Decluttering Card
+## Conditional Decluttering Card
 
 On your Dashboard go to Add Card > Manual > paste code and replace entity, name, colors and sensor to your own liking
 
 ```
-type: custom:decluttering-card
-template: media_player
-variables:
-  - entity: media_player.bedroom_hifi
-  - name: Bedroom
-  - primary-color: '#6F8081'
-  - secondary-color: rgba(96,114,116,0.6)
-  - button-background-color: rgba(96,114,116,0.2)
-  - sensor: bedroom
+type: conditional
+conditions:
+  - condition: state
+    entity: media_player.bedroom_hifi
+    state_not: 'off'
+  - condition: state
+    entity: media_player.bedroom_hifi
+    state_not: idle
+card:
+  type: custom:decluttering-card
+  template: media_player
+  variables:
+    - entity: media_player.bedroom_hifi
+    - name: Bedroom
+    - primary-color: '#6F8081'
+    - secondary-color: rgba(96,114,116,0.6)
+    - button-background-color: rgba(96,114,116,0.2)
+    - sensor: bedroom
 ```
+
+You should now have the media player working
