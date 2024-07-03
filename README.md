@@ -28,7 +28,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 ### **Bedroom Media Duration**
 
 ```
-{% set md = state_attr('media_player.bedroom', 'media_duration') %}
+{% set md = state_attr('media_player.bedroom_hifi', 'media_duration') %}
 {% if md == none %}
   00:00
 {% elif (md | int) < 3600 %}
