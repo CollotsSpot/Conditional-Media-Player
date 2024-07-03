@@ -18,6 +18,8 @@ If you like the card as much as i do, you won't mind setting up a few things to 
 
 you will need to create 3 sensor templates per media player and 1 automation for the card to work. To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor. 
 
+the following sensors are too get the process bar and timers working. replace name and media_player entity to your own. the name of the sensor is important.
+
 ### **Bedroom Media Duration**
 
 ```
@@ -30,5 +32,36 @@ you will need to create 3 sensor templates per media player and 1 automation for
   {{ (md | int) | timestamp_custom('%-H:%M:%S', false) }}
 {% else %}
   00:00
+{% endif %}
+```
+
+### **Bedroom Media Position**
+
+```
+{% set mp = state_attr('media_player.bedroom_hifi', 'media_position') %}
+{% if mp == none %}
+  00:00
+{% elif (mp | int) < 3600 %}
+  {{ (mp | int) | timestamp_custom('%M:%S') }}
+{% elif (mp | int) > 3600 %}
+  {{ (mp | int) | timestamp_custom('%-H:%M:%S', false) }}
+{% else %}
+  00:00
+{% endif %}
+```
+
+### **Bedroom Media Remaining**
+
+```
+{% set md = state_attr('media_player.bedroom_hifi', 'media_duration') %}
+{% set mp = state_attr('media_player.bedroom_hifi', 'media_position') %}
+{% if mp == none %}
+  -00:00 |
+{% elif (md | int - mp | int) < 3600 %}
+  -{{ (md | int - mp | int) | timestamp_custom('%M:%S') }} |
+{% elif (md | int - mp | int) > 3600 %}
+  -{{ (md | int - mp | int) | timestamp_custom('%-H:%M:%S', false) }} |
+{% else %}
+  -00:00 |
 {% endif %}
 ```
