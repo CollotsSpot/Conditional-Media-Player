@@ -9,3 +9,5 @@ If you like the card as much as i do, you won't mind setting up a few things to 
 ## **Prerequisites:**
 
 [Button Card](https://github.com/custom-cards/button-card)
+[Decluttering Card](https://github.com/custom-cards/decluttering-card)
+
