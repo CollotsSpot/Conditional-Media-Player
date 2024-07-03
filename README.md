@@ -103,7 +103,7 @@ On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration edit
 
 On your Dashboard go to Add Card > Manual > paste code and replace entity, name, colors and sensor to your liking
 
-'''
+```
 type: custom:decluttering-card
 template: media_player
 variables:
@@ -113,4 +113,4 @@ variables:
   - secondary-color: rgba(96,114,116,0.6)
   - button-background-color: rgba(96,114,116,0.2)
   - sensor: bedroom
-  - '''
+```
