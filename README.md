@@ -1,4 +1,4 @@
-# **Media Player Card** ## **For Home Assistant**
+# **Media Player Card for Home Assistant**
 
 ![Screenshot_20240703-052457](https://github.com/CollotsSpot/Conditional-Media-Player/assets/62449370/548272ef-12af-4693-b647-a6d2a85d00b3)
 
