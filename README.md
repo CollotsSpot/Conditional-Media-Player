@@ -18,7 +18,7 @@ If you like the card as much as i do, you won't mind setting up a few things to 
 
 you will need to create 3 sensor templates per media player and 1 automation for the card to work. To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor. 
 
-***Bedroom Media Duration***
+### **Bedroom Media Duration**
 
 ```
 {% set md = state_attr('media_player.bedroom', 'media_duration') %}
