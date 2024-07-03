@@ -97,5 +97,4 @@ action:
 
 ## Decluttering Card
 
-On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration editor. Make space at the top and paste the contents of the [Decluttering Template](Conditional-Media-Player
-/Decluttering Template)
+On your Dashboard go to Edit Dashboard > Three dot menu > raw configuration editor. Make space at the top and paste the contents of the [Decluttering Template](Conditional-Media-Player/Decluttering Template)
