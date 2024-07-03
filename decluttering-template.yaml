@@ -34,6 +34,7 @@ decluttering_templates:
                   - width: 110px
                   - height: 33px
                   - border-radius: 99px
+                  - border-width: 0px
                   - box-shadow: none
                   - background: '[[button-background-color]]'
                   - margin: 20px 0 0 0
@@ -66,6 +67,7 @@ decluttering_templates:
                 - background: none
                 - padding: 0px
                 - border-radius: 0px
+                - border-width: 0px
               name:
                 - justify-self: stretch
                 - line-height: 23px
@@ -90,6 +92,7 @@ decluttering_templates:
                 - background: none
                 - padding: 0px
                 - border-radius: 0px
+                - border-width: 0px
               name:
                 - justify-self: stretch
                 - line-height: 21px
@@ -120,6 +123,7 @@ decluttering_templates:
                 - background: none
                 - padding: 0px
                 - border-radius: 0px
+                - border-width: 0px
               name:
                 - justify-self: stretch
                 - font-size: 19px
@@ -144,6 +148,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
                     icon:
@@ -174,6 +179,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
                     icon:
@@ -194,6 +200,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
                     icon:
@@ -215,6 +222,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
                     icon:
@@ -236,6 +244,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
                     icon:
@@ -259,6 +268,7 @@ decluttering_templates:
                       - width: 33px
                       - height: 33px
                       - border-radius: 99px
+                      - border-width: 0px
                       - box-shadow: none
                       - background: '[[button-background-color]]'
             styles:
@@ -272,6 +282,7 @@ decluttering_templates:
                 - align-self: end
                 - background: none
                 - box-shadow: none
+                - border-width: 0px
         time:
           card:
             type: custom:button-card
@@ -288,7 +299,7 @@ decluttering_templates:
                   styles:
                     card:
                       - background: none
-                      - border-radius: 0
+                      - border-width: 0px
                       - box-shadow: none
                     state:
                       - color: '[[primary-color]]'
@@ -306,7 +317,7 @@ decluttering_templates:
                   styles:
                     card:
                       - background: none
-                      - border-radius: 0
+                      - border-width: 0px
                       - box-shadow: none
                       - padding: 0 5px 0 0
                     state:
@@ -325,7 +336,7 @@ decluttering_templates:
                   styles:
                     card:
                       - background: none
-                      - border-radius: 0
+                      - border-width: 0px
                       - box-shadow: none
                     state:
                       - color: '[[primary-color]]'
@@ -342,6 +353,7 @@ decluttering_templates:
                     card:
                       - height: 20px
                       - box-shadow: none
+                      - border-width: 0px
                       - margin: 4px 0 0 0
                       - background: none
                     container:
@@ -375,6 +387,7 @@ decluttering_templates:
                 - padding: 5px 6px 5px 0px
                 - background: none
                 - box-shadow: none
+                - border-width: 0px
       styles:
         grid:
           - grid-template-areas: '"i artist" "i album" "i title" "i buttons" "time time"'
@@ -385,6 +398,7 @@ decluttering_templates:
           - background: none
           - box-shadow: none
           - border-radius: 0px
+          - border-width: 0px
           - padding: 0px 0px 0 5px
           - margin: 5px 0 -10px 0
         entity_picture:
