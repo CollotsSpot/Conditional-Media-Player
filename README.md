@@ -144,4 +144,4 @@ You should now have the media player working. The Card will not show on the dash
 
 If you want to create a media player for watching Movies and TV Shows ect, and find the timers are not updating, like I did, you will need to create some different sensors. Below are instructions on how to do this.
 
-[Instructions for Nvidia Shield](nvidia-shield.md)
+[Instructions for Nvidia Shield](Nvidia-Shield.md)
