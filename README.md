@@ -7,17 +7,17 @@ https://github.com/CollotsSpot/Conditional-Media-Player/assets/62449370/36a911b5
 
 
 
-Here is my Media Player card for home assistant.
+Here is my Media Player card for Home Assistant.
 
-Note: I am no expert at coding or Home Assistant. this is my first GitHub project. I'm sure there more elegant ways of achieving this card. I would love to have it in HACS, but do not have the knowledge to do so. If you have any ideas for improvements feel free to comment.
+Note: I am no expert at coding or Home Assistant. this is my first GitHub project. I'm sure there are more elegant ways of achieving this card. I would love to have it in HACS but do not have the knowledge to do so. If you have any ideas for improvements feel free to comment.
 
-If you like the card as much as i do, you won't mind setting up a few things to get the card working...
+If you like the card as much as I do, you won't mind setting up a few things to get the card working...
 
 ## **Prerequisites:**
 
 [Button Card](https://github.com/custom-cards/button-card)
 
-[My Cards Bundle](https://github.com/custom-cards/button-card)
+[My Cards Bundle](https://github.com/AnthonMS/my-cards)
 
 [Decluttering Card](https://github.com/custom-cards/decluttering-card)
 
@@ -27,7 +27,7 @@ you will need to create 3 sensor templates per media player and 1 automation for
 
 ## Sensors
 
-The following sensors provide the timers infomation. replace name and media_player entity to your own. the name of the sensor is important.
+The following sensors provide the timer information. replace name and media_player entity to your own. the name of the sensor is important.
 
 To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor > Paste this code
 
@@ -82,7 +82,7 @@ To create a sensor template go to Settings > Devices & Services > Helpers > Crea
 
 This automation updates the sensors every second.
 
-To create the Automation go to Settings > Automations & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
+To create the Automation go to Settings > Automation & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
 
 (Replace media_player entities to your own, and add more if required)
 
@@ -135,13 +135,13 @@ card:
     - sensor: bedroom
 ```
 
-You should now have the media player working. The Card will not show on the dashboard when the media_player is off or idle. This is normal behaviour. The card will always be shown when editing the Dashboard.
+You should now have the media player working. The Card will not show on the dashboard when the media_player is off or idle. This is normal behavior. The card will always be shown when editing the Dashboard.
 
 
 
 
-## Note 
+## Note
 
-If you want to create a media player for watching Movies and TV Shows ect, and find the timers are not updating, like I did, you will need to create some different sensors. Below are instructions on how to do this.
+If you want to create a media player for watching Movies and TV Shows etc, and find the timers are not updating, like I did, you will need to create some different sensors. Below are instructions on how to do this.
 
 [Instructions for Nvidia Shield](Nvidia-Shield.md)
