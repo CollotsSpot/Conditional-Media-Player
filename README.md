@@ -76,7 +76,6 @@ card:
     - primary-color: '#6F8081'
     - secondary-color: rgba(96,114,116,0.6)
     - button-background-color: rgba(96,114,116,0.2)
-    - sensor: bedroom
 ```
 
 You should now have the media player working. The Card will not show on the dashboard when the media_player is off or idle. This is normal behavior. The card will always be shown when editing the Dashboard.
