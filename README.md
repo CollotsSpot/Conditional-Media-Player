@@ -24,7 +24,7 @@ If you like the card as much as I do, you won't mind setting up a few things to 
 
 ## Automation
 
-This automation updates the sensors every second.
+This automation updates the media_players every second.
 
 To create the Automation go to Settings > Automation & Scenes > Create Automation > Create New Automation > Three dot menu > Edit in YAML > Paste this code
 
