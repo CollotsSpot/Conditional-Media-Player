@@ -283,58 +283,80 @@ decluttering_templates:
               progress:
                 card:
                   type: custom:button-card
-                  tap_action:
-                    action: none
-                  entity: sensor.[[sensor]]_media_position
-                  show_state: true
-                  show_icon: false
-                  show_name: false
+                  show_name: true
+                  name: |
+                    [[[
+                      const mp = states['[[entity]]'].attributes.media_position;    
+                      if (mp === undefined) {
+                        return '00:00';
+                      } else if (mp < 3600) {
+                        return new Date(mp * 1000).toISOString().substr(14, 5);
+                      } else {
+                        return new Date(mp * 1000).toLocaleTimeString([], { hour12: false, hour: 'numeric', minute: '2-digit', second: '2-digit' });
+                      }
+                    ]]]
                   styles:
                     card:
                       - background: none
-                      - border-width: 0px
-                      - border-radius: 0px
+                      - border-radius: 0
                       - box-shadow: none
-                    state:
+                      - margin: 0 0 0 0
+                    name:
                       - color: '[[primary-color]]'
                       - font-weight: 550
                       - font-size: 16px
               remaining:
                 card:
                   type: custom:button-card
-                  tap_action:
-                    action: none
-                  entity: sensor.[[sensor]]_media_remaining
-                  show_state: true
-                  show_icon: false
-                  show_name: false
+                  show_name: true
+                  name: |
+                    [[[
+                      const md = states['[[entity]]'].attributes.media_duration;
+                      const mp = states['[[entity]]'].attributes.media_position;
+                      if (md === undefined || mp === undefined) {
+                      return '-00:00 |';
+                      }
+                      const remainingTime = Math.max(md - mp, 0); // Ensures non-negative time
+                      let remainingTimeStr;
+                      if (remainingTime < 3600) {
+                      remainingTimeStr = new Date(remainingTime * 1000).toISOString().substr(14, 5);
+                      } else {
+                      remainingTimeStr = new Date(remainingTime * 1000).toLocaleTimeString([], { hour12: false, hour: 'numeric', minute: '2-digit', second: '2-digit' });
+                      }
+                      return `-${remainingTimeStr} |`;
+                    ]]]
                   styles:
                     card:
                       - background: none
-                      - border-width: 0px
-                      - border-radius: 0px
+                      - border-radius: 0
                       - box-shadow: none
-                      - padding: 0 5px 0 0
-                    state:
+                      - margin: 0 8px 0 0
+                    name:
                       - color: '[[secondary-color]]'
                       - font-weight: 550
                       - font-size: 16px
               duration:
                 card:
                   type: custom:button-card
-                  tap_action:
-                    action: none
-                  entity: sensor.[[sensor]]_media_duration
-                  show_state: true
-                  show_icon: false
-                  show_name: false
+                  show_name: true
+                  name: |
+                    [[[
+                      const md = states['[[entity]]'].attributes.media_duration;
+                      if (md === undefined) {
+                        return '00:00';
+                      } else if (md < 3600) {
+                        return new Date(md * 1000).toISOString().substr(14, 5);
+                      } else {
+                        return new Date(md * 1000).toLocaleTimeString([], { hour12: false, hour: 'numeric', minute: '2-digit', second: '2-digit' });
+                      }
+                    ]]]
                   styles:
                     card:
                       - background: none
-                      - border-width: 0px
-                      - border-radius: 0px
+                      - border-radius: 0
                       - box-shadow: none
-                    state:
+                      - margin: 0 0 0 0
+                    name:
                       - color: '[[primary-color]]'
                       - font-weight: 550
                       - font-size: 16px
@@ -349,7 +371,6 @@ decluttering_templates:
                     card:
                       - height: 20px
                       - box-shadow: none
-                      - border-width: 0px
                       - margin: 4px 0 0 0
                       - background: none
                     container:
@@ -360,7 +381,7 @@ decluttering_templates:
                       - background: '[[button-background-color]]'
                       - border-radius: 99px
                       - padding: 0 0px 0 0px
-                      - width: 91%
+                      - width: 92%
                       - height: 7px
                       - margin: 4px 0 0 0
                     progress:
@@ -380,10 +401,9 @@ decluttering_templates:
                 - grid-template-columns: max-content 1fr max-content max-content
                 - grid-template-rows: min-content
               card:
-                - padding: 5px 6px 5px 0px
+                - padding: 5px 10px 5px 5px
                 - background: none
                 - box-shadow: none
-                - border-width: 0px
       styles:
         grid:
           - grid-template-areas: '"i artist" "i album" "i title" "i buttons" "time time"'
