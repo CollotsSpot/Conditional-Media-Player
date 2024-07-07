@@ -21,62 +21,6 @@ If you like the card as much as I do, you won't mind setting up a few things to 
 
 [Decluttering Card](https://github.com/custom-cards/decluttering-card)
 
-##  Sensors & Automation
-
-you will need to create 3 sensor templates per media player and 1 automation for the card to work.
-
-## Sensors
-
-The following sensors provide the timer information. replace name and media_player entity to your own. the name of the sensor is important.
-
-To create a sensor template go to Settings > Devices & Services > Helpers > Create Helper > Template > Template a sensor > Paste this code
-
-
-### **Bedroom Media Duration**
-
-```
-{% set md = state_attr('media_player.bedroom', 'media_duration') %}
-{% if md == none %}
-  00:00
-{% elif (md | int) < 3600 %}
-  {{ (md | int) | timestamp_custom('%M:%S') }}
-{% elif (md | int) > 3600 %}
-  {{ (md | int) | timestamp_custom('%-H:%M:%S', false) }}
-{% else %}
-  00:00
-{% endif %}
-```
-
-### **Bedroom Media Position**
-
-```
-{% set mp = state_attr('media_player.bedroom', 'media_position') %}
-{% if mp == none %}
-  00:00
-{% elif (mp | int) < 3600 %}
-  {{ (mp | int) | timestamp_custom('%M:%S') }}
-{% elif (mp | int) > 3600 %}
-  {{ (mp | int) | timestamp_custom('%-H:%M:%S', false) }}
-{% else %}
-  00:00
-{% endif %}
-```
-
-### **Bedroom Media Remaining**
-
-```
-{% set md = state_attr('media_player.bedroom', 'media_duration') %}
-{% set mp = state_attr('media_player.bedroom', 'media_position') %}
-{% if mp == none %}
-  -00:00 |
-{% elif (md | int - mp | int) < 3600 %}
-  -{{ (md | int - mp | int) | timestamp_custom('%M:%S') }} |
-{% elif (md | int - mp | int) > 3600 %}
-  -{{ (md | int - mp | int) | timestamp_custom('%-H:%M:%S', false) }} |
-{% else %}
-  -00:00 |
-{% endif %}
-```
 
 ## Automation
 
@@ -142,6 +86,6 @@ You should now have the media player working. The Card will not show on the dash
 
 ## Note
 
-If you want to create a media player for watching Movies and TV Shows etc, and find the timers are not updating, like I did, you will need to create some different sensors. Below are instructions on how to do this.
+If you want to create a media player for watching Movies and TV Shows etc, and find the timers are not updating, like I did, you will need to create some sensors. Below are instructions on how to do this.
 
 [Instructions for Nvidia Shield](Nvidia-Shield.md)
