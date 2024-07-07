@@ -41,7 +41,6 @@ decluttering_templates:
             type: custom:button-card
             tap_action:
               action: none
-            entity: sensor.[[sensor]]_content
             name: |
               [[[
                  if (states['[[entity]]'].attributes.media_artist != undefined) 
@@ -49,11 +48,6 @@ decluttering_templates:
               ]]]
             show_label: true
             show_icon: false
-            state:
-              - value: radio
-                styles:
-                  name:
-                    - color: rgba(0,0,0,0)
             styles:
               card:
                 - box-shadow: none
@@ -72,7 +66,6 @@ decluttering_templates:
             type: custom:button-card
             tap_action:
               action: none
-            entity: sensor.[[sensor]]_content
             name: |
               [[[
                  if (states['[[entity]]'].attributes.media_album_name != undefined) 
@@ -97,19 +90,12 @@ decluttering_templates:
             type: custom:button-card
             tap_action:
               action: none
-            entity: sensor.[[sensor]]_content
             name: |
               [[[
                  if (states['[[entity]]'].attributes.media_title != undefined) 
                return `<marquee>${states['[[entity]]'].attributes.media_title}<\marquee>`;
               ]]]
             show_icon: false
-            state:
-              - value: radio
-                styles:
-                  name:
-                    - font-size: 24px
-                    - margin-top: '-4px'
             styles:
               card:
                 - box-shadow: none
